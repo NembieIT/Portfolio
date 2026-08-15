@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+package-lock.json
+stitch_kinetic_dark_creative_portfolio/
+design-src/
+.opencode/
