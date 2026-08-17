@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: lumina-noir-portfolio
+    name: portfolio-jp1k
     runtime: node
     plan: free
     buildCommand: npm ci && npm run build

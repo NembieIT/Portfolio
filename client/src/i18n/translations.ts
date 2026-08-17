@@ -12,7 +12,7 @@ export const translations = {
       name: 'Mai Tiến Dũng',
       role: 'I build web apps end to end — from the first database schema to the last button click.',
       description:
-        'Full-stack developer based in Cần Thơ. I design REST APIs that stay predictable under load, wire real-time features with WebSocket, and ship responsive React interfaces that feel natural to use.',
+        'Full-stack developer based in Cần Thơ. I design REST APIs that stay predictable under load, wire real-time features with WebSocket, and build responsive React interfaces that feel natural to use.',
       cta: 'See my work',
       ctaSecondary: 'Get in touch',
     },
@@ -20,7 +20,7 @@ export const translations = {
       kicker: 'About me',
       heading: 'Code is only half the job.',
       paragraphs: [
-        'I’m a Software Engineering student at Can Tho University, and most of what I know about building software didn’t come from lectures — it came from breaking side projects and putting them back together until they actually shipped.',
+        'I’m a Software Engineering student at Can Tho University, and most of what I know about building software didn’t come from lectures — it came from breaking side projects and putting them back together until they actually made it to production.',
         'Today I work comfortably across the whole stack: React and TypeScript on the frontend, Express, Spring Boot, MongoDB and MySQL on the backend, Docker to make it all reproducible. The rest of my time goes to AI agents and computer vision, because that is where the next decade of products lives.',
       ],
       skillHeading: 'Tools I work with',
@@ -71,7 +71,7 @@ export const translations = {
           {
             period: 'Competition',
             title: 'USE IT Competition',
-            text: 'Took that design thinking to the stage at the USE company IT competition — presenting a product under pressure and learning that shipping beats perfecting.',
+            text: 'Took that design thinking to the stage at the USE company IT competition — presenting a product under pressure and learning that delivering beats perfecting.',
           },
           {
             period: 'Student projects',
@@ -175,7 +175,7 @@ export const translations = {
       name: 'Mai Tiến Dũng',
       role: 'Mình xây web app từ đầu đến cuối — từ schema đầu tiên đến nút bấm cuối cùng.',
       description:
-        'Lập trình viên full-stack sống tại Cần Thơ. Mình thiết kế REST API ổn định dưới tải lớn, nối thời gian thực bằng WebSocket, và ship những giao diện React responsive cảm giác tự nhiên khi dùng.',
+        'Lập trình viên full-stack sống tại Cần Thơ. Mình thiết kế REST API ổn định dưới tải lớn, nối thời gian thực bằng WebSocket, và xây dựng những giao diện React responsive cảm giác tự nhiên khi dùng.',
       cta: 'Xem dự án',
       ctaSecondary: 'Liên hệ ngay',
     },
@@ -234,12 +234,12 @@ export const translations = {
           {
             period: 'Cuộc thi',
             title: 'Cuộc thi CNTT USE',
-            text: 'Mình mang tư duy thiết kế đó lên sân khấu cuộc thi CNTT của công ty USE — thuyết trình sản phẩm dưới áp lực và học được rằng ship được còn hơn hoàn hảo mãi.',
+            text: 'Mình mang tư duy thiết kế đó lên sân khấu cuộc thi CNTT của công ty USE — thuyết trình sản phẩm dưới áp lực và học được rằng hoàn thành còn hơn hoàn hảo mãi.',
           },
           {
             period: 'Dự án sinh viên',
             title: 'Ứng dụng thật, stack thật',
-            text: 'Mình ship ChatTime với WebSocket và JWT, SmartChefAI với YOLOv8, và Task Manager trên Spring Boot + MySQL. Ba dự án, ba stack khác nhau, mỗi cái đều chạy thật.',
+            text: 'Mình xây dựng ChatTime với WebSocket và JWT, SmartChefAI với YOLOv8, và Task Manager trên Spring Boot + MySQL. Ba dự án, ba stack khác nhau, mỗi cái đều chạy thật.',
           },
           {
             period: 'Hiện tại',

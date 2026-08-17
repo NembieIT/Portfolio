@@ -9,7 +9,7 @@
 # so no CORS issues). Update the target if the Render service name changes.
 [[redirects]]
   from = "/api/*"
-  to = "https://lumina-noir-portfolio.onrender.com/api/:splat"
+  to = "https://portfolio-jp1k.onrender.com/api/:splat"
   status = 200
 
 # SPA fallback — every other route serves index.html
