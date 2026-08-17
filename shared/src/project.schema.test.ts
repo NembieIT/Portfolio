@@ -10,7 +10,7 @@ describe('projectDtoSchema', () => {
     tech: 'React • NodeJS • MongoDB',
     imageUrl: 'https://example.com/ecommerce.jpg',
     alt: 'Moody architectural visualization.',
-    url: 'https://github.com/NembieIT',
+    githubUrl: 'https://github.com/NembieIT',
     accent: 'primary',
   };
 
@@ -18,27 +18,29 @@ describe('projectDtoSchema', () => {
     expect(projectDtoSchema.parse(valid)).toEqual(valid);
   });
 
-  it('accepts optional Vietnamese fields', () => {
+  it('accepts optional Vietnamese fields and a demo URL', () => {
     const bilingual = {
       ...valid,
       titleVi: 'Nền tảng Thương mại điện tử',
       descriptionVi: 'Cửa hàng CRUD đầy đủ.',
+      demoUrl: 'https://demo.example.com',
     };
 
     expect(projectDtoSchema.parse(bilingual).titleVi).toBe('Nền tảng Thương mại điện tử');
+    expect(projectDtoSchema.parse(bilingual).demoUrl).toBe('https://demo.example.com');
   });
 
   it.each([
     { accent: 'invalid' as string, reason: 'unknown accent' },
-    { url: '' as string, reason: 'empty url' },
+    { githubUrl: '' as string, reason: 'empty github url' },
     { imageUrl: 'not-a-url' as string, reason: 'invalid image URL' },
     { title: '' as string, reason: 'empty title' },
-  ])('rejects $reason', ({ accent, url, imageUrl, title }) => {
+  ])('rejects $reason', ({ accent, githubUrl, imageUrl, title }) => {
     expect(() =>
       projectDtoSchema.parse({
         ...valid,
         accent: accent ?? valid.accent,
-        url: url ?? valid.url,
+        githubUrl: githubUrl ?? valid.githubUrl,
         imageUrl: imageUrl ?? valid.imageUrl,
         title: title ?? valid.title,
       }),

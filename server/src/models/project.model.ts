@@ -10,7 +10,8 @@ const projectSchema = new Schema(
     tech: { type: String, required: true, trim: true, maxlength: 120 },
     imageUrl: { type: String, required: true },
     alt: { type: String, required: true, maxlength: 1000 },
-    url: { type: String, required: true },
+    githubUrl: { type: String, required: true },
+    demoUrl: { type: String },
     accent: {
       type: String,
       required: true,

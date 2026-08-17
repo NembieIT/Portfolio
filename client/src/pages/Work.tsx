@@ -113,11 +113,15 @@ function WorkCardSkeleton() {
     <div
       role="status"
       aria-label="Loading projects"
-      className="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container/40 border border-white/10 animate-pulse"
+      className="relative w-full rounded-2xl overflow-hidden bg-surface-container/40 border border-white/10 animate-pulse"
     >
-      <div className="absolute bottom-0 left-0 w-full p-gutter flex flex-col gap-4">
-        <div className="w-24 h-6 bg-surface-container-high rounded-sm"></div>
-        <div className="w-48 h-8 bg-surface-container-high rounded-sm"></div>
+      <div className="h-1 w-full bg-surface-container-high"></div>
+      <div className="aspect-[16/10] bg-surface-container-high"></div>
+      <div className="p-gutter flex flex-col gap-3">
+        <div className="w-2/3 h-6 bg-surface-container-high rounded-sm"></div>
+        <div className="w-full h-4 bg-surface-container-high rounded-sm"></div>
+        <div className="w-3/4 h-4 bg-surface-container-high rounded-sm"></div>
+        <div className="w-full h-4 bg-surface-container-high rounded-sm mt-2"></div>
       </div>
     </div>
   );

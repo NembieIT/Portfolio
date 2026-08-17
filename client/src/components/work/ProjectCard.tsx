@@ -1,35 +1,40 @@
 import type { ProjectDto } from '@shared/index';
 import { useLanguage } from '../../i18n/LanguageContext';
+import { resolveProjectImage } from './projectImages';
 
 type AccentStyles = {
+  bar: string;
   text: string;
-  border: string;
+  chip: string;
   hoverShadow: string;
   hoverBorder: string;
-  arrow: string;
+  buttonSolid: string;
 };
 
 const ACCENT_STYLES: Record<ProjectDto['accent'], AccentStyles> = {
   primary: {
+    bar: 'bg-primary',
     text: 'text-primary',
-    border: 'border-l-primary',
-    hoverShadow: 'hover:shadow-primary/20',
-    hoverBorder: 'hover:border-primary/30',
-    arrow: 'text-primary',
+    chip: 'bg-primary/15 border-primary/40 text-primary',
+    hoverShadow: 'hover:shadow-primary/25',
+    hoverBorder: 'hover:border-primary/40',
+    buttonSolid: 'bg-primary text-on-primary',
   },
   secondary: {
+    bar: 'bg-secondary',
     text: 'text-secondary',
-    border: 'border-l-secondary',
-    hoverShadow: 'hover:shadow-secondary/20',
-    hoverBorder: 'hover:border-secondary/30',
-    arrow: 'text-secondary',
+    chip: 'bg-secondary/15 border-secondary/40 text-secondary',
+    hoverShadow: 'hover:shadow-secondary/25',
+    hoverBorder: 'hover:border-secondary/40',
+    buttonSolid: 'bg-secondary text-on-secondary',
   },
   'inverse-primary': {
+    bar: 'bg-inverse-primary',
     text: 'text-inverse-primary',
-    border: 'border-l-inverse-primary',
-    hoverShadow: 'hover:shadow-inverse-primary/20',
-    hoverBorder: 'hover:border-inverse-primary/30',
-    arrow: 'text-inverse-primary',
+    chip: 'bg-inverse-primary/15 border-inverse-primary/40 text-inverse-primary',
+    hoverShadow: 'hover:shadow-inverse-primary/25',
+    hoverBorder: 'hover:border-inverse-primary/40',
+    buttonSolid: 'bg-inverse-primary text-white',
   },
 };
 
@@ -46,48 +51,59 @@ export default function ProjectCard({ project, className = '' }: ProjectCardProp
   const title = isVietnamese && project.titleVi ? project.titleVi : project.title;
   const description =
     isVietnamese && project.descriptionVi ? project.descriptionVi : project.description;
+  const imageSrc = resolveProjectImage(project.title, project.imageUrl);
 
   return (
-    <a
-      className={`group relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container/40 backdrop-blur-md border border-white/10 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl ${accent.hoverShadow} ${accent.hoverBorder} ${className}`}
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${title} — ${project.category}`}
+    <article
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface-container/40 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${accent.hoverShadow} ${accent.hoverBorder} ${className}`}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-70"></div>
-      <img
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-        alt={project.alt}
-        src={project.imageUrl}
-        loading="lazy"
-      />
-      <div className="absolute top-gutter right-gutter w-12 h-12 rounded-full bg-surface/50 backdrop-blur-md border border-white/10 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-500 delay-100">
-        <span className={`material-symbols-outlined ${accent.arrow}`}>arrow_outward</span>
+      <div className={`h-1 w-full ${accent.bar}`} />
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          alt={project.alt}
+          src={imageSrc}
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-container/70 via-transparent to-transparent" />
+        <span
+          className={`absolute top-4 left-4 font-label-sm text-label-sm uppercase tracking-widest px-3 py-1.5 rounded-sm border backdrop-blur-md ${accent.chip}`}
+        >
+          {project.category}
+        </span>
       </div>
-      <div className="absolute bottom-0 left-0 w-full p-gutter z-20 flex flex-col gap-4 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-        <div className="flex items-center gap-4">
-          <span
-            className={`font-label-sm text-label-sm ${accent.text} uppercase tracking-widest bg-surface/80 backdrop-blur-md px-3 py-1 rounded-sm border-l ${accent.border}`}
+      <div className="flex flex-1 flex-col gap-3 p-gutter">
+        <h3 className="font-headline-md text-headline-md text-on-background leading-tight">
+          {title}
+        </h3>
+        <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          {description}
+        </p>
+        <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap items-center gap-2">
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-md font-label-sm text-label-sm uppercase tracking-widest transition-transform duration-300 hover:scale-[1.03] ${accent.buttonSolid}`}
+            aria-label={`${messages.workCard.viewGithub} — ${title}`}
           >
-            {project.category}
-          </span>
-          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-            {project.tech}
-          </span>
-        </div>
-        <div>
-          <h2 className="font-headline-lg text-headline-lg text-on-background mb-2 group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-md line-clamp-2">
-            {description}
-          </p>
-          <span className="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mt-3">
-            {messages.workCard.viewProject}
-          </span>
+            <span className="material-symbols-outlined text-base">code</span>
+            {messages.workCard.viewGithub}
+          </a>
+          {project.demoUrl ? (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-md font-label-sm text-label-sm uppercase tracking-widest border transition-colors duration-300 hover:bg-white/10 ${accent.text}`}
+              aria-label={`${messages.workCard.viewDemo} — ${title}`}
+            >
+              <span className="material-symbols-outlined text-base">open_in_new</span>
+              {messages.workCard.viewDemo}
+            </a>
+          ) : null}
         </div>
       </div>
-    </a>
+    </article>
   );
 }

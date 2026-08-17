@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/common/Reveal';
 import { useLanguage } from '../i18n/LanguageContext';
+import portraitImg from '../pics/gioithieu.jpg';
 
 const ShaderBackground = lazy(() => import('../components/three/ShaderBackground'));
 const TorusKnotScene = lazy(() => import('../components/three/TorusKnotScene'));
@@ -91,9 +92,29 @@ export default function Home() {
       <section className="relative w-full py-stack-xl px-margin-desktop bg-surface-container-lowest/80 backdrop-blur-3xl border-t border-white/[0.02]">
         <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
           <div className="md:col-span-4 flex flex-col justify-between">
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">
-              {messages.homeAbout.kicker}
-            </h2>
+            <div className="flex flex-col gap-8">
+              <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                {messages.homeAbout.kicker}
+              </h2>
+              <div className="relative group max-w-[340px]">
+                <div className="absolute -inset-3 bg-gradient-to-br from-primary/30 via-secondary/20 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none"></div>
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img
+                    src={portraitImg}
+                    alt="Mai Tiến Dũng — chân dung lập trình viên full-stack"
+                    loading="lazy"
+                    className="w-full aspect-[4/5] object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span className="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">
+                      Full-stack Developer
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="w-12 h-[1px] bg-primary mt-8 md:mt-0"></div>
           </div>
           <div className="md:col-span-8 flex flex-col gap-8">

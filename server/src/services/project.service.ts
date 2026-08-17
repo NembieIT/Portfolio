@@ -16,7 +16,8 @@ function toProjectDto(doc: LeanProject): ProjectDto {
     tech: doc.tech,
     imageUrl: doc.imageUrl,
     alt: doc.alt,
-    url: doc.url,
+    githubUrl: doc.githubUrl,
+    demoUrl: doc.demoUrl ?? undefined,
     accent: doc.accent,
   });
 }

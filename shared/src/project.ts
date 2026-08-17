@@ -12,7 +12,8 @@ export const projectDtoSchema = z.object({
   tech: z.string().min(1),
   imageUrl: z.string().url(),
   alt: z.string().min(1),
-  url: z.string().min(1),
+  githubUrl: z.string().url(),
+  demoUrl: z.string().url().optional(),
   accent: z.enum(PROJECT_ACCENTS),
 });
 

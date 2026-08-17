@@ -67,6 +67,14 @@ export default function Contact() {
       icon: 'code',
     },
     {
+      name: messages.contact.linkedin,
+      detail: 'linkedin.com/in/tien-dung-mai',
+      href: 'https://www.linkedin.com/in/tien-dung-mai-aa506235a/',
+      hover: 'hover:text-secondary-fixed-dim',
+      glow: 'from-secondary-fixed/5',
+      icon: 'work',
+    },
+    {
       name: 'Zalo',
       detail: '0382514371',
       href: 'https://zalo.me/0382514371',

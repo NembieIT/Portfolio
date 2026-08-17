@@ -16,7 +16,7 @@ const projectFixture = {
   tech: 'React • NodeJS • MongoDB',
   imageUrl: 'https://example.com/ecommerce.jpg',
   alt: 'Moody architectural visualization.',
-  url: 'https://github.com/NembieIT',
+  githubUrl: 'https://github.com/NembieIT',
   accent: 'primary',
 };
 

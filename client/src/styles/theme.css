@@ -71,17 +71,17 @@
   --spacing-stack-md: 40px;
   --container-container-max: 1440px;
 
-  /* Font families */
-  --font-display-xl: 'Playfair Display', Georgia, serif;
-  --font-display-lg: 'Playfair Display', Georgia, serif;
-  --font-display-lg-mobile: 'Playfair Display', Georgia, serif;
-  --font-headline-lg: 'Playfair Display', Georgia, serif;
-  --font-headline-md: 'Playfair Display', Georgia, serif;
-  --font-headline-lg-mobile: 'Playfair Display', Georgia, serif;
-  --font-body-lg: 'Hanken Grotesk', system-ui, sans-serif;
-  --font-body-md: 'Hanken Grotesk', system-ui, sans-serif;
-  --font-code-md: 'JetBrains Mono', ui-monospace, monospace;
-  --font-label-sm: 'JetBrains Mono', ui-monospace, monospace;
+  /* Font families — Be Vietnam Pro has native Vietnamese glyph coverage */
+  --font-display-xl: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-display-lg: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-display-lg-mobile: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-headline-lg: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-headline-md: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-headline-lg-mobile: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body-lg: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body-md: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-code-md: 'JetBrains Mono', 'Be Vietnam Pro', ui-monospace, monospace;
+  --font-label-sm: 'JetBrains Mono', 'Be Vietnam Pro', ui-monospace, monospace;
 
   /* Font sizes */
   --text-display-xl: 96px;
