@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: lumina-noir-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: CORS_ORIGIN
+        value: '*'
+      - key: RATE_LIMIT_MAX
+        value: '20'
+      - key: LOG_LEVEL
+        value: info

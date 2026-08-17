@@ -1,0 +1,19 @@
+[build]
+  command = "npm ci && npm run build"
+  publish = "client/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Proxy API requests to the Express backend (server-side, same-origin to the browser,
+# so no CORS issues). Update the target if the Render service name changes.
+[[redirects]]
+  from = "/api/*"
+  to = "https://lumina-noir-portfolio.onrender.com/api/:splat"
+  status = 200
+
+# SPA fallback — every other route serves index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
